@@ -1,0 +1,185 @@
+[gd_scene load_steps=27 format=3 uid="uid://c5lm7ppnei3ci"]
+
+[ext_resource type="Script" path="res://Design/sprite3d/character_body_3d.gd" id="1_qr8x3"]
+[ext_resource type="Texture2D" uid="uid://c6m6gdyhe7784" path="res://Design/sprite3d/sanwich caminata/Sandwish_W_01.png" id="1_rc4w3"]
+[ext_resource type="Texture2D" uid="uid://c721r8k8a38ea" path="res://Design/sprite3d/sanwich caminata/Sandwish_W_02.png" id="2_4b2nt"]
+[ext_resource type="Texture2D" uid="uid://ce63efu5wbc22" path="res://Design/sprite3d/sanwich caminata/Sandwish_W_03.png" id="3_52bn8"]
+[ext_resource type="Texture2D" uid="uid://cmushdnacie6v" path="res://Design/sprite3d/sanwich caminata/Sandwish_W_04.png" id="4_asj4o"]
+[ext_resource type="Texture2D" uid="uid://bpta8o3eci3uq" path="res://Design/sprite3d/sanwich caminata/Sandwish_W_05.png" id="5_c4s18"]
+[ext_resource type="Texture2D" uid="uid://c3wy7wucgueje" path="res://Design/sprite3d/sanwich shot/Sandwish_G_01.png" id="7_q0k4f"]
+[ext_resource type="Texture2D" uid="uid://csaej1sl2b2gs" path="res://Design/sprite3d/sanwich shot/Sandwish_G_02.png" id="8_c6m08"]
+[ext_resource type="Texture2D" uid="uid://c2rc8m7tsdod6" path="res://Design/sprite3d/sanwich shot/Sandwish_G_03.png" id="9_d2upj"]
+[ext_resource type="Texture2D" uid="uid://c1bgrekmqpt3b" path="res://Design/sprite3d/sanwich shot/Sandwish_G_06.png" id="10_8x3hv"]
+[ext_resource type="Script" path="res://Design/sprite3d/rigid_body_3d.gd" id="11_4hfo3"]
+[ext_resource type="Texture2D" uid="uid://dhvo3orgsiig" path="res://Design/sprite3d/sanwich shot/Sandwish_G_08.png" id="12_nw8so"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u5jsi"]
+atlas = ExtResource("1_rc4w3")
+region = Rect2(0, 0, 1500, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2f3xn"]
+atlas = ExtResource("2_4b2nt")
+region = Rect2(0, 0, 1500, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_irdtm"]
+atlas = ExtResource("3_52bn8")
+region = Rect2(0, 0, 1500, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8q1t"]
+atlas = ExtResource("4_asj4o")
+region = Rect2(0, 0, 1500, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y083v"]
+atlas = ExtResource("5_c4s18")
+region = Rect2(0, 0, 1500, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wntis"]
+atlas = ExtResource("7_q0k4f")
+region = Rect2(0, 0, 1500, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4270"]
+atlas = ExtResource("8_c6m08")
+region = Rect2(0, 0, 1500, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u24ku"]
+atlas = ExtResource("9_d2upj")
+region = Rect2(0, 0, 1500, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p5oht"]
+atlas = ExtResource("10_8x3hv")
+region = Rect2(0, 0, 1500, 1080)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_77dfl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u5jsi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2f3xn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_irdtm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y8q1t")
+}],
+"loop": true,
+"name": &"caminar ",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u5jsi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2f3xn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_irdtm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y8q1t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y083v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wntis")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4270")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u24ku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p5oht")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wntis")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4270")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u24ku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p5oht")
+}],
+"loop": true,
+"name": &"disparo",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0wyn0"]
+margin = 0.0
+radius = 4.27
+height = 9.473
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e5k2f"]
+atlas = ExtResource("12_nw8so")
+region = Rect2(0, 0, 1500, 1080)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jsk0v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e5k2f")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e5k2f")
+}],
+"loop": true,
+"name": &"shot",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bweec"]
+radius = 3.3035
+height = 6.607
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.348, 0, 0)
+script = ExtResource("1_qr8x3")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="CharacterBody3D"]
+sprite_frames = SubResource("SpriteFrames_77dfl")
+animation = &"disparo"
+frame_progress = 0.489101
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.16006, 0, 0)
+shape = SubResource("CapsuleShape3D_0wyn0")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.788937, 0, 0)
+script = ExtResource("11_4hfo3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.9012, 0, 0)
+sprite_frames = SubResource("SpriteFrames_jsk0v")
+animation = &"shot"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.8626, 0, 0)
+shape = SubResource("CapsuleShape3D_bweec")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.2561, 4.87684, 22.8241)
+current = true

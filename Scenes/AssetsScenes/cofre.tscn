@@ -1,0 +1,76 @@
+[gd_scene load_steps=12 format=3 uid="uid://b0rrls60ki6rb"]
+
+[ext_resource type="Script" path="res://Scripts/Mechanics/cofre.gd" id="1_s7lp0"]
+[ext_resource type="Texture2D" uid="uid://t4vu3sns8g81" path="res://Animacion/COFRE/Cofre_O_01.png" id="2_pu4ur"]
+[ext_resource type="Texture2D" uid="uid://7w1s7pl6aka4" path="res://Animacion/COFRE/Cofre_O_02.png" id="3_0ucts"]
+[ext_resource type="Texture2D" uid="uid://beo326cl25yuf" path="res://Animacion/COFRE/Cofre_O_03.png" id="4_awak2"]
+[ext_resource type="Texture2D" uid="uid://corb3g7tu2h5f" path="res://Animacion/COFRE/Cofre_O_04.png" id="5_y7piv"]
+[ext_resource type="AudioStream" uid="uid://d0ao06m5s0le4" path="res://Audio/drive-download-20241024T184006Z-001/chestopening(1).mp3" id="6_0f3ro"]
+[ext_resource type="Texture2D" uid="uid://bocf2cf2hoopr" path="res://Animacion/COFRE/Cofre_O_05.png" id="6_spgey"]
+[ext_resource type="Texture2D" uid="uid://dd2julcfg4042" path="res://Animacion/COFRE/Cofre_O_06.png" id="7_42wto"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o2tmh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_pu4ur")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0ucts")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_awak2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_y7piv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_spgey")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_42wto")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_pu4ur")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_2yloo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_avci7"]
+size = Vector3(1.685, 1.69, 1)
+
+[node name="StaticBody3D" type="StaticBody3D"]
+script = ExtResource("1_s7lp0")
+
+[node name="Sprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+sprite_frames = SubResource("SpriteFrames_o2tmh")
+animation = &"new_animation"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_2yloo")
+disabled = true
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 32
+collision_mask = 32
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_avci7")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("6_0f3ro")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

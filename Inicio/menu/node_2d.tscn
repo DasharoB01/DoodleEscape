@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfc2c4uhi0bh2"]
+
+[ext_resource type="PackedScene" uid="uid://b31id1aqdwn3t" path="res://Inicio/menu/Creditos.tscn" id="1_ulkgb"]
+[ext_resource type="PackedScene" uid="uid://dlmn44f06yrea" path="res://Inicio/menu/MainMenuu.tscn" id="2_vgpja"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="MarginContainer" parent="." instance=ExtResource("1_ulkgb")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -150.0
+offset_top = -150.0
+offset_right = 1424.0
+offset_bottom = 786.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="MarginContainer2" parent="." instance=ExtResource("2_vgpja")]
+offset_left = -105.0
+offset_top = -85.0
+offset_right = 1469.0
+offset_bottom = 851.0

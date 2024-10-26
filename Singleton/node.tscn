@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dt6fhuhvya1tj"]
+
+[ext_resource type="Script" path="res://Singleton/musica.gd" id="1_td3lc"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_td3lc")

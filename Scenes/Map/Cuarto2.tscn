@@ -1,0 +1,85 @@
+[gd_scene load_steps=11 format=3 uid="uid://7x7fgi64x2yj"]
+
+[ext_resource type="PackedScene" uid="uid://bemd3c04u3mej" path="res://Design/Modelos3D/habitación_V2.glb" id="1_asmw2"]
+[ext_resource type="Script" path="res://Scripts/map/cuarto_2.gd" id="1_iev4i"]
+[ext_resource type="PackedScene" uid="uid://dvy51qw4tkw50" path="res://Design/Modelos3D/Libro_V1.glb" id="3_ivgnd"]
+[ext_resource type="PackedScene" uid="uid://bjyhvqtlc7mqm" path="res://Scenes/Characters/player.tscn" id="4_kc7nm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_32d1d"]
+size = Vector3(0.0067749, 0.001, 0.00745207)
+
+[sub_resource type="ImageTexture" id="ImageTexture_0y42q"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_nucbw"]
+rough = true
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ksvue"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_6uw21"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_t0nyh"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_iev4i")
+
+[node name="habitación_V2" parent="." instance=ExtResource("1_asmw2")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -2.17249, 0, 2.96786)
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(-2.18557e-06, 100, -2.84124e-05, 0, -4.37114e-06, -650, -50, -4.37114e-06, 1.24195e-12, 2.0928, 9.2042, -44.4526)
+collision_layer = 2
+collision_mask = 2
+
+[node name="SigPagina" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 3.33955e-13, -8.47033e-20, -7.4607e-14, 1, -5.42873e-22, 1.31422e-20, -3.9968e-15, 1, 0.00331861, -0.000131154, -0.0011758)
+shape = SubResource("BoxShape3D_32d1d")
+
+[node name="Libro_V1" parent="." instance=ExtResource("3_ivgnd")]
+transform = Transform3D(-4.37852e-06, 75, -3.27835e-06, 0, -3.27835e-06, -75, -100.169, -3.27835e-06, 1.43301e-13, 0.667157, 9.87711, -39.6988)
+
+[node name="Sprite3D" type="Sprite3D" parent="Libro_V1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0117479, 0)
+texture = SubResource("ImageTexture_0y42q")
+
+[node name="CharacterBody3D" parent="." node_paths=PackedStringArray("label") instance=ExtResource("4_kc7nm")]
+transform = Transform3D(-1.74846e-08, -1.77636e-15, 0.4, -9.9175e-23, 0.4, 1.77636e-15, -0.4, 5.29396e-23, -1.74846e-08, 2.09945, 10.8401, -35.3083)
+collision_layer = 3
+collision_mask = 3
+label = NodePath("../Pagina")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.31992, 10.3467, -39.7792)
+
+[node name="Bordes" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.94539, 9.3049, -35.055)
+visible = false
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+physics_material_override = SubResource("PhysicsMaterial_nucbw")
+
+[node name="Bottom" type="CollisionShape3D" parent="Bordes"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.55, 0, -1.77365, -4.53504)
+shape = SubResource("WorldBoundaryShape3D_ksvue")
+
+[node name="Derecha" type="CollisionShape3D" parent="Bordes"]
+transform = Transform3D(0.1, 8.35187e-24, -9.49187e-31, 0, -4.37114e-09, -0.26, -8.35187e-24, 0.1, -1.1365e-08, 0.0612001, 0.789654, -9.54762)
+shape = SubResource("WorldBoundaryShape3D_6uw21")
+
+[node name="Izquierda" type="CollisionShape3D" parent="Bordes"]
+transform = Transform3D(-0.1, 8.74228e-09, 0, 3.82137e-16, 4.37114e-09, -0.26, -8.74228e-09, -0.1, -1.1365e-08, 0.0612001, 0.789654, 0.233246)
+shape = SubResource("WorldBoundaryShape3D_6uw21")
+
+[node name="Top" type="CollisionShape3D" parent="Bordes"]
+transform = Transform3D(-0.1, 1.50996e-08, 0, -1.50996e-08, -0.1, 0, 0, 0, 0.55, 0, 3.0696, -4.64221)
+shape = SubResource("WorldBoundaryShape3D_t0nyh")
+
+[node name="Pagina" type="Label3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.9666, 8.25436, -39.7643)
+visible = false
+text = "Press \"e\" to change
+page
+"
+
+[connection signal="body_entered" from="Area3D" to="CharacterBody3D" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="CharacterBody3D" method="_on_area_3d_body_exited"]

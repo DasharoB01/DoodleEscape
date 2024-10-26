@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://bnpew28bfkneb"]
+
+[ext_resource type="Script" path="res://Scripts/Mechanics/manzana.gd" id="1_bfexo"]
+[ext_resource type="Texture2D" uid="uid://dgc8d4ai7h8u2" path="res://Design/Sprites/2D/objetos_Manzana(cura).png" id="2_cykaj"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_t35d1"]
+radius = 0.4
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_fwkyk"]
+
+[node name="RigidBody3D" type="RigidBody3D"]
+collision_layer = 128
+collision_mask = 128
+script = ExtResource("1_bfexo")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+texture = ExtResource("2_cykaj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.999998, 0.00166741, 0.000620531, -0.00166745, 0.999999, 6.20153e-05, -0.000620425, -6.3066e-05, 1, 0, 0, 0)
+shape = SubResource("SphereShape3D_t35d1")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_fwkyk")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

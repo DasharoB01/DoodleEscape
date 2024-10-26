@@ -1,0 +1,186 @@
+[gd_scene load_steps=17 format=3 uid="uid://bf0o7m17o7j4x"]
+
+[ext_resource type="Script" path="res://pruebas/prueba.gd" id="1_dgq1a"]
+[ext_resource type="PackedScene" uid="uid://bdfbtafii8f76" path="res://Scenes/Characters/Player/player_combate.tscn" id="2_a1soq"]
+[ext_resource type="PackedScene" uid="uid://dvy51qw4tkw50" path="res://Design/Modelos3D/Libro_V1.glb" id="3_ws7i3"]
+[ext_resource type="AudioStream" uid="uid://d1sj5rwk0hm8l" path="res://Audio/drive-download-20241024T184006Z-001/spawnchest.mp3" id="4_jd1ue"]
+[ext_resource type="PackedScene" uid="uid://cpeogy2j5wndq" path="res://Design/sprite3d/sanwich3d.tscn" id="5_nfet0"]
+[ext_resource type="PackedScene" uid="uid://ctr3srxvq8w4c" path="res://habitacion/new/habitación_V4.gltf" id="6_lkgb4"]
+[ext_resource type="PackedScene" uid="uid://io2np70jhmde" path="res://habitacion/libro.gltf" id="7_q4p06"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lvii7"]
+sky_horizon_color = Color(0.59625, 0.719581, 0.677469, 1)
+ground_bottom_color = Color(0, 0.424325, 0.159876, 1)
+ground_horizon_color = Color(0.59625, 0.719581, 0.677469, 1)
+
+[sub_resource type="Sky" id="Sky_3b741"]
+sky_material = SubResource("ProceduralSkyMaterial_lvii7")
+
+[sub_resource type="Environment" id="Environment_km5fw"]
+background_mode = 2
+sky = SubResource("Sky_3b741")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yy8wi"]
+size = Vector3(0.82666, 20, 1.90613)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hb0dk"]
+size = Vector3(0.173584, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5tc5q"]
+size = Vector3(0.320801, 0.00806427, 0.0765076)
+
+[sub_resource type="Animation" id="Animation_wl2us"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_eujbf"]
+resource_name = "oscurecer"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.840896, 0.840896),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xujyd"]
+_data = {
+"RESET": SubResource("Animation_wl2us"),
+"oscurecer": SubResource("Animation_eujbf")
+}
+
+[node name="Node3D" type="Node3D" node_paths=PackedStringArray("camera")]
+script = ExtResource("1_dgq1a")
+camera = NodePath("Camera3D")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_km5fw")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.712611, -0.604039, -0.356821, 0.58427, -0.792521, 0.174756, -0.388348, -0.0839465, 0.917681, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.994296, 0.0303464, 0.102244, -0.0511923, 0.976807, 0.207912, -0.0935636, -0.21196, 0.972789, 4.037, 3.97715, 6.41)
+fov = 60.0
+
+[node name="PlayerCombate" parent="." instance=ExtResource("2_a1soq")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 5.91892, 1.30101, 0.873902)
+
+[node name="CanvasLayer" parent="PlayerCombate" index="3"]
+scale = Vector2(2, 2)
+transform = Transform2D(2, 0, 0, 2, 0, 0)
+
+[node name="ProgressBar" parent="PlayerCombate/CanvasLayer" index="0"]
+z_index = 0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.2
+one_shot = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(0.867346, 0, 0, 0, 1, 0, 0, 0, 1, 2.3358, 0, 0)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.93868, 2.24762, 0)
+shape = SubResource("BoxShape3D_yy8wi")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.53878, 2.24762, 0.453064)
+shape = SubResource("BoxShape3D_yy8wi")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3358, 0, 0)
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 6.20791, 2.43493, 0)
+shape = SubResource("BoxShape3D_hb0dk")
+
+[node name="Pagina" type="Label3D" parent="."]
+transform = Transform3D(0.999995, -0.000385249, 0.00303137, -0.00291921, 0.172782, 0.984956, -0.000903219, -0.98496, 0.17278, 3.35509, 0.397939, 1.94863)
+visible = false
+text = "Press \"e\" to change
+page
+"
+font_size = 65
+
+[node name="Libro_V1" parent="." instance=ExtResource("3_ws7i3")]
+transform = Transform3D(150.324, 0, 0, 0, 75, 0, 0, 0, 75, 1.79492, -0.853908, 1.16113)
+visible = false
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Libro_V1"]
+collision_layer = 131
+collision_mask = 129
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Libro_V1/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00512697, 0.0156899, -0.000228882)
+shape = SubResource("BoxShape3D_5tc5q")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_jd1ue")
+pitch_scale = 1.1
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("5_nfet0")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 7.77432, 4.07684, 0.842786)
+
+[node name="CharacterBody3D2" parent="." instance=ExtResource("5_nfet0")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 3.13813, 3.79612, 0.842786)
+
+[node name="CharacterBody3D3" parent="." instance=ExtResource("5_nfet0")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 6.13771, 4.07117, 0.780048)
+
+[node name="CharacterBody3D4" parent="." instance=ExtResource("5_nfet0")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.102508, 4.21429, 0.842786)
+
+[node name="CharacterBody3D5" parent="." instance=ExtResource("5_nfet0")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -2.71126, 3.51823, 0.763649)
+
+[node name="habitación_V4" parent="." instance=ExtResource("6_lkgb4")]
+transform = Transform3D(9.20099, 0, -2.54445, 0, 10.7153, 0, 3.45421, 0, 6.77766, -25.3997, -3.0803, -0.299668)
+
+[node name="libro" parent="." instance=ExtResource("7_q4p06")]
+transform = Transform3D(9.32826, -0.136607, -3.78557, -0.0776642, 10.0525, -0.554133, 3.78724, 0.542618, 9.31279, -27.6523, -3.16699, 1.12432)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_xujyd")
+}
+speed_scale = 0.42
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
+
+[editable path="PlayerCombate"]

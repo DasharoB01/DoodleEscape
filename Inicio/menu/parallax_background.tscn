@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://k5gixcmh13dt"]
+
+[ext_resource type="Texture2D" uid="uid://cwp641mdfy8qg" path="res://Inicio/menu/assets/Captura de pantalla (498).png" id="1_tl1xi"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(685, 385)
+texture = ExtResource("1_tl1xi")

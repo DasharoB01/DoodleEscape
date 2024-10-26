@@ -1,0 +1,234 @@
+[gd_scene load_steps=10 format=3 uid="uid://dlmn44f06yrea"]
+
+[ext_resource type="Script" path="res://Inicio/menu/main_menuu.gd" id="1_kblv0"]
+[ext_resource type="Texture2D" uid="uid://cux8wuh35iuak" path="res://Inicio/menu/assets/sin fondo/Screenshot_2024-10-23_222242-removebg-preview.png" id="2_hxeco"]
+[ext_resource type="Texture2D" uid="uid://to22a8enovbu" path="res://Inicio/menu/assets/sin fondo/Screenshot_2024-10-23_222253-removebg-preview.png" id="3_i5bag"]
+[ext_resource type="Texture2D" uid="uid://8jtn1cg0yt7l" path="res://Inicio/menu/assets/sin fondo/Screenshot_2024-10-23_222303-removebg-preview.png" id="4_ahagb"]
+[ext_resource type="Texture2D" uid="uid://cy3jqlnannv7d" path="res://Inicio/menu/assets/Triaxis_Logo_Horizontal.png" id="6_81n2x"]
+[ext_resource type="Texture2D" uid="uid://cwp641mdfy8qg" path="res://Inicio/menu/assets/Captura de pantalla (498).png" id="7_xfy0b"]
+
+[sub_resource type="Animation" id="Animation_6sdni"]
+resource_name = "FADE_IN"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.43333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HBoxContainer/VBoxContainer/Jugar:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.43333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HBoxContainer/VBoxContainer/Creditos:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.43333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HBoxContainer/VBoxContainer/Salir:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.43333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HBoxContainer/Sprite2D:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.43333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_lfnq1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HBoxContainer/VBoxContainer/Jugar:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HBoxContainer/VBoxContainer/Creditos:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HBoxContainer/VBoxContainer/Salir:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HBoxContainer/Sprite2D:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fakqw"]
+_data = {
+"FADE_IN": SubResource("Animation_6sdni"),
+"RESET": SubResource("Animation_lfnq1")
+}
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.17
+anchor_bottom = 1.17
+offset_left = -87.0
+offset_top = -73.0
+offset_right = 139.16
+offset_bottom = 104.84
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.848528, 0.849301)
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 80
+script = ExtResource("1_kblv0")
+
+[node name="Background" type="Button" parent="MarginContainer"]
+layout_mode = 2
+icon = ExtResource("7_xfy0b")
+flat = true
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -325.0
+offset_right = 182.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.837986, 0.840226)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+alignment = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_constants/separation = 37
+alignment = 2
+
+[node name="Jugar" type="Button" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+icon = ExtResource("2_hxeco")
+flat = true
+
+[node name="Creditos" type="Button" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+icon = ExtResource("3_i5bag")
+flat = true
+
+[node name="Salir" type="Button" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+icon = ExtResource("4_ahagb")
+flat = true
+
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer"]
+position = Vector2(-411.701, 324.913)
+scale = Vector2(0.19, 0.19)
+texture = ExtResource("6_81n2x")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_fakqw")
+}
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Jugar" to="MarginContainer" method="_on_jugar_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Creditos" to="MarginContainer" method="_on_creditos_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Salir" to="MarginContainer" method="_on_salir_pressed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="MarginContainer" method="_on_animation_player_animation_finished"]

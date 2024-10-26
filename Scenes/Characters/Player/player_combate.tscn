@@ -1,0 +1,216 @@
+[gd_scene load_steps=33 format=3 uid="uid://bdfbtafii8f76"]
+
+[ext_resource type="Script" path="res://Scripts/Character/Player/player_combate.gd" id="1_177hl"]
+[ext_resource type="Script" path="res://Scenes/Characters/Player/progress_bar.gd" id="3_387w7"]
+[ext_resource type="Texture2D" uid="uid://wa4n20255skt" path="res://Design/Sprites/2D/Vida/drive-download-20241024T072416Z-001/Salud_10.png" id="3_lxewu"]
+[ext_resource type="Texture2D" uid="uid://c68xg7d2s6r1v" path="res://Animacion/drive-download-20241024T192653Z-001/Pepe_G_01.png" id="4_a1bbj"]
+[ext_resource type="Texture2D" uid="uid://wbvfdnyydekq" path="res://Animacion/drive-download-20241024T192653Z-001/Pepe_G_02.png" id="5_cpvbj"]
+[ext_resource type="Texture2D" uid="uid://8llsrahniqay" path="res://Animacion/drive-download-20241024T192653Z-001/Pepe_G_03.png" id="6_5f8u1"]
+[ext_resource type="Texture2D" uid="uid://c1oo3xm72qyrk" path="res://Animacion/drive-download-20241024T192653Z-001/Pepe_G_04.png" id="7_ro2ie"]
+[ext_resource type="Texture2D" uid="uid://lvxd8irwcurv" path="res://Animacion/drive-download-20241024T192653Z-001/Pepe_G_05.png" id="8_o2rco"]
+[ext_resource type="Texture2D" uid="uid://bop6kyra180mo" path="res://Animacion/drive-download-20241024T192653Z-001/Pepe_G_06.png" id="9_mx1og"]
+[ext_resource type="Texture2D" uid="uid://c6b2svc4e503c" path="res://Animacion/drive-download-20241024T192653Z-001/Pepe_G_07.png" id="10_hv2po"]
+[ext_resource type="Texture2D" uid="uid://dyo3w63yuc6ue" path="res://Animacion/drive-download-20241024T192653Z-001/Pepe_G_08.png" id="11_ot17n"]
+[ext_resource type="Texture2D" uid="uid://bgmlk28r8ptu6" path="res://Animacion/drive-download-20241024T192653Z-001/Pepe_G_09.png" id="12_8b25d"]
+[ext_resource type="Texture2D" uid="uid://ba725iy88ms82" path="res://Animacion/drive-download-20241024T192653Z-001/Pepe_G_10.png" id="13_urdj4"]
+[ext_resource type="Texture2D" uid="uid://b13vkvj3xnpwr" path="res://Animacion/drive-download-20241024T192653Z-001/Pepe_G_11.png" id="14_nf526"]
+[ext_resource type="Texture2D" uid="uid://oral4rahuwpo" path="res://Animacion/drive-download-20241024T192653Z-001/Pepe_G_12.png" id="15_w7the"]
+[ext_resource type="Texture2D" uid="uid://d2buu4uvneauf" path="res://Animacion/drive-download-20241024T192653Z-001/Pepe_G_13.png" id="16_51utm"]
+[ext_resource type="Texture2D" uid="uid://blwxny5batwvg" path="res://Animacion/drive-download-20241024T193645Z-001/Pepe_W_01.png" id="17_td5tq"]
+[ext_resource type="Texture2D" uid="uid://gvvtnvbehrs" path="res://Animacion/drive-download-20241024T193645Z-001/Pepe_W_02.png" id="18_0mill"]
+[ext_resource type="Texture2D" uid="uid://dd8reutk0yio0" path="res://Animacion/drive-download-20241024T193645Z-001/Pepe_W_03.png" id="19_cbru0"]
+[ext_resource type="Texture2D" uid="uid://bmab6kdeod02t" path="res://Animacion/drive-download-20241024T193645Z-001/Pepe_W_04.png" id="20_uq56y"]
+[ext_resource type="Texture2D" uid="uid://bksoa4f5x2xsn" path="res://Animacion/drive-download-20241024T193645Z-001/Pepe_W_05.png" id="21_gjqiu"]
+[ext_resource type="AudioStream" uid="uid://be26s83cj3jn7" path="res://Audio/drive-download-20241024T184006Z-001/jump.mp3" id="22_28dox"]
+[ext_resource type="Texture2D" uid="uid://51ngqphlkjty" path="res://Animacion/Muerte/Pepe_Dead_01.png" id="23_ywilg"]
+[ext_resource type="Texture2D" uid="uid://b7vv8pplrkhe7" path="res://Animacion/Muerte/Pepe_Dead_02.png" id="24_r7ps4"]
+[ext_resource type="Texture2D" uid="uid://8kxgljb2gkw8" path="res://Animacion/Muerte/Pepe_Dead_03.png" id="25_k2d5r"]
+[ext_resource type="Texture2D" uid="uid://w7jgb7vshpgi" path="res://Animacion/Muerte/Pepe_Dead_04.png" id="26_tsh87"]
+[ext_resource type="Texture2D" uid="uid://co4p2oy1mu6x3" path="res://Animacion/Muerte/Pepe_Dead_05.png" id="27_bh37v"]
+[ext_resource type="Texture2D" uid="uid://dhacpc88kvfcy" path="res://Animacion/Muerte/Pepe_Dead_06.png" id="28_rqfow"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gqpcj"]
+size = Vector3(1, 1, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sqyxf"]
+size = Vector3(1.17493, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8wl32"]
+size = Vector3(1.31131, 1.09375, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5cdoy"]
+animations = [{
+"frames": [{
+"duration": 0.2,
+"texture": ExtResource("4_a1bbj")
+}, {
+"duration": 0.2,
+"texture": ExtResource("5_cpvbj")
+}, {
+"duration": 0.2,
+"texture": ExtResource("6_5f8u1")
+}, {
+"duration": 0.2,
+"texture": ExtResource("7_ro2ie")
+}, {
+"duration": 0.2,
+"texture": ExtResource("8_o2rco")
+}, {
+"duration": 0.2,
+"texture": ExtResource("9_mx1og")
+}, {
+"duration": 0.2,
+"texture": ExtResource("10_hv2po")
+}, {
+"duration": 0.2,
+"texture": ExtResource("11_ot17n")
+}, {
+"duration": 0.2,
+"texture": ExtResource("12_8b25d")
+}, {
+"duration": 0.2,
+"texture": ExtResource("13_urdj4")
+}, {
+"duration": 0.2,
+"texture": ExtResource("14_nf526")
+}, {
+"duration": 0.2,
+"texture": ExtResource("15_w7the")
+}, {
+"duration": 0.2,
+"texture": ExtResource("16_51utm")
+}],
+"loop": false,
+"name": &"Golpear",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_td5tq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_0mill")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_cbru0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_uq56y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_gjqiu")
+}],
+"loop": true,
+"name": &"caminar",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.2,
+"texture": ExtResource("23_ywilg")
+}, {
+"duration": 1.2,
+"texture": ExtResource("24_r7ps4")
+}, {
+"duration": 1.2,
+"texture": ExtResource("25_k2d5r")
+}, {
+"duration": 1.2,
+"texture": ExtResource("26_tsh87")
+}, {
+"duration": 1.2,
+"texture": ExtResource("27_bh37v")
+}, {
+"duration": 10.0,
+"texture": ExtResource("28_rqfow")
+}],
+"loop": false,
+"name": &"muerte",
+"speed": 5.0
+}]
+
+[node name="PlayerCombate" type="CharacterBody3D"]
+collision_layer = 51
+collision_mask = 54
+script = ExtResource("1_177hl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_gqpcj")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.33436, 0, 0)
+shape = SubResource("BoxShape3D_sqyxf")
+disabled = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
+self_modulate = Color(1, 1, 1, 0)
+z_index = -1
+z_as_relative = false
+offset_top = 2.0
+offset_right = 100.0
+offset_bottom = 29.0
+value = 100.0
+show_percentage = false
+script = ExtResource("3_387w7")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/ProgressBar"]
+position = Vector2(66, 13.7812)
+scale = Vector2(0.1375, 0.250933)
+texture = ExtResource("3_lxewu")
+
+[node name="RecibirDaño" type="Area3D" parent="."]
+collision_layer = 135
+collision_mask = 135
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RecibirDaño"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0339203, -0.046875, 0)
+shape = SubResource("BoxShape3D_8wl32")
+
+[node name="RecibirDaño" type="Timer" parent="RecibirDaño"]
+wait_time = 0.5
+one_shot = true
+
+[node name="Atacando" type="Timer" parent="."]
+wait_time = 0.45
+one_shot = true
+
+[node name="TiempoEmpuje" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="AtacandoCooldown" type="Timer" parent="."]
+wait_time = 0.75
+one_shot = true
+
+[node name="GPUParticlesAttractorSphere3D" type="GPUParticlesAttractorSphere3D" parent="."]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("22_28dox")
+
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="."]
+
+[node name="AnimatedSprite3D2" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0.508357, 0.414595, 0)
+sprite_frames = SubResource("SpriteFrames_5cdoy")
+animation = &"muerte"
+frame = 5
+frame_progress = 1.0
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="RecibirDaño" to="." method="_on_recibir_daño_body_entered"]
+[connection signal="body_exited" from="RecibirDaño" to="." method="_on_recibir_daño_body_exited"]
+[connection signal="timeout" from="RecibirDaño/RecibirDaño" to="." method="_on_recibir_daño_timeout"]
+[connection signal="timeout" from="Atacando" to="." method="_on_atacando_timeout"]
+[connection signal="timeout" from="TiempoEmpuje" to="." method="_on_tiempo_empuje_timeout"]
+[connection signal="timeout" from="AtacandoCooldown" to="." method="_on_atacando_cooldown_timeout"]

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgyunugwvj8ng"]
+
+[ext_resource type="Script" path="res://Scripts/Character/Player/animated_sprite_3d.gd" id="2_gu883"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+
+[node name="Sprite3D" type="Sprite3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.863532, 0)
+region_enabled = true
+region_rect = Rect2(18.3692, 34.0281, 39.7459, 30.5769)
+script = ExtResource("2_gu883")

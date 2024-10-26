@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://b8hm06e7nwgq5"]
+
+[ext_resource type="Script" path="res://Design/sprite3d/bullet.gd" id="1_rr1j3"]
+[ext_resource type="Texture2D" uid="uid://dhvo3orgsiig" path="res://Design/sprite3d/sanwich shot/Sandwish_G_08.png" id="1_x7hte"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7x0e"]
+atlas = ExtResource("1_x7hte")
+region = Rect2(0, 0, 1500, 1080)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uc1ff"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l7x0e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_yxj76"]
+radius = 0.610761
+
+[node name="RigidBody3D" type="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.273188, 0, 0)
+collision_layer = 128
+collision_mask = 128
+script = ExtResource("1_rr1j3")
+
+[node name="enemy" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.1, 0, 0)
+sprite_frames = SubResource("SpriteFrames_uc1ff")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0838, 0.709669, 0)
+shape = SubResource("SphereShape3D_yxj76")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
